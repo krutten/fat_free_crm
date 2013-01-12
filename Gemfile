@@ -2,18 +2,18 @@ source :rubygems
 
 # Uncomment the database that you have configured in config/database.yml
 # ----------------------------------------------------------------------
-# gem 'mysql2', '0.3.10'
+gem 'mysql2', '0.3.10'
 # gem 'sqlite3'
-gem 'pg', '~> 0.13.2'
+# gem 'pg', '~> 0.13.2'
 
 # Allows easy switching between locally developed gems, and gems installed from rubygems.org
 # See README for more info at: https://github.com/ndbroadbent/bundler_local_development
-gem 'bundler_local_development', :group => :development, :require => false
-begin
-  require 'bundler_local_development'
-  Bundler.development_gems = [/^ffcrm_/, /ransack/]
-rescue LoadError
-end
+#gem 'bundler_local_development', :group => :development, :require => false
+#begin
+#  require 'bundler_local_development'
+#  Bundler.development_gems = [/^ffcrm_/, /ransack/]
+#rescue LoadError
+#end
 
 # Removes a gem dependency
 def remove(name)
@@ -39,6 +39,8 @@ gem 'premailer', :require => false
 
 # Remove fat_free_crm dependency, to stop it from being auto-required too early.
 remove 'fat_free_crm'
+
+gem 'unicorn'
 
 group :development do
   gem 'thin'
@@ -82,9 +84,10 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier',     '>= 1.0.3'
   gem 'execjs'
-  unless ENV["CI"]
-    gem 'therubyracer', :platform => :ruby
-  end
+## We use node
+#  unless ENV["CI"]
+#    gem 'therubyracer', :platform => :ruby
+#  end
 end
 
 gem 'turbo-sprockets-rails3'

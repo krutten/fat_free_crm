@@ -45,8 +45,6 @@ GEM
       activerecord (>= 3.0.7)
       activerecord (>= 3.0.7)
     builder (3.0.4)
-    bundler_local_development (0.4.1)
-      bundler
     cancan (1.6.7)
     capistrano (2.13.5)
       highline
@@ -116,7 +114,6 @@ GEM
       thor (~> 0.14)
     json (1.7.6)
     kgio (2.7.4)
-    libv8 (3.3.10.4)
     libwebsocket (0.1.7.1)
       addressable
       websocket
@@ -129,6 +126,7 @@ GEM
     method_source (0.7.1)
     mime-types (1.19)
     multi_json (1.5.0)
+    mysql2 (0.3.10)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -145,7 +143,6 @@ GEM
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
       mime-types
-    pg (0.13.2)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -247,8 +244,6 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.6)
-    therubyracer (0.10.1)
-      libv8 (~> 3.3.10)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -286,7 +281,6 @@ DEPENDENCIES
   acts_as_list (~> 0.1.4)
   ajax-chosen-rails (>= 0.2.1)
   authlogic (= 3.1.0)
-  bundler_local_development
   cancan
   capistrano
   capistrano_colors
@@ -303,10 +297,10 @@ DEPENDENCIES
   haml (~> 3)
   headless
   jquery-rails
+  mysql2 (= 0.3.10)
   nokogiri
   paper_trail
   paperclip (~> 2.8.0)
-  pg (~> 0.13.2)
   premailer
   prototype-rails
   pry-rails
@@ -322,7 +316,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   select2-rails
   simple_form (~> 2.0.1)
-  therubyracer
   thin
   turbo-sprockets-rails3
   uglifier (>= 1.0.3)
