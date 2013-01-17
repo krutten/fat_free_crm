@@ -74,8 +74,10 @@ end
 
 group :heroku do
   gem 'unicorn', :platform => :ruby
+  gem 'pg', '~> 0.13.2'
 end
 
+gem 'memcache-client'
 
 # Gems used only for assets and not required
 # in production environments by default.
