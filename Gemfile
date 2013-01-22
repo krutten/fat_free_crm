@@ -65,11 +65,11 @@ group :test do
   gem 'database_cleaner'
   gem "acts_as_fu", "~> 0.0.8"
 
-  if RUBY_VERSION.to_f >= 1.9
+#  if RUBY_VERSION.to_f >= 1.9
     gem 'factory_girl_rails', '~> 3.0.0'
-  else
-    gem 'factory_girl_rails', '~> 1.7.0'
-  end
+#  else
+#    gem 'factory_girl_rails', '~> 1.7.0'
+#  end
 end
 
 group :heroku do
