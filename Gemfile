@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 # Uncomment the database that you have configured in config/database.yml
 # ----------------------------------------------------------------------
@@ -45,23 +45,31 @@ gem 'unicorn'
 group :development do
   gem 'thin'
   gem 'quiet_assets'
-  # Uncomment the following two gems to deploy via Capistrano
   gem 'capistrano'
   gem 'capistrano_colors'
+
+  # Use zeus and guard gems to speed up development
+  # Run 'zeus start' and 'bundle exec guard' to get going
+  unless ENV["CI"]
+    gem 'guard'
+    gem 'guard-rspec'
+    gem 'guard-rails'
+    gem 'rb-inotify', :require => false
+    gem 'rb-fsevent', :require => false
+    gem 'rb-fchange', :require => false
+  end
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.9.0'
+  gem 'rspec-rails'
   gem 'headless'
-  unless ENV["CI"]
-    gem 'ruby-debug', :platform => :mri_18
-    gem 'debugger', :platform => :mri_19
-  end
-  gem 'pry-rails'
+  gem 'debugger' unless ENV["CI"]
+  gem 'pry-rails' unless ENV["CI"]
 end
 
 group :test do
-  gem 'capybara', '~> 1.1' # v2 and up is not r1.8 compatible.
+  gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem "acts_as_fu", "~> 0.0.8"
 
@@ -70,6 +78,9 @@ group :test do
 #  else
 #    gem 'factory_girl_rails', '~> 1.7.0'
 #  end
+  gem 'factory_girl_rails'
+  gem 'zeus' unless ENV["CI"]
+  gem 'coveralls', :require => false
 end
 
 group :heroku do
